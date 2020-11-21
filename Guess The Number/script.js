@@ -2,9 +2,10 @@
 
 let randomNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highScore = 0;
 
 
-
+//the check button
 document.querySelector('.check').addEventListener('click', function(){
 
     //take input from input box
@@ -21,6 +22,12 @@ document.querySelector('.check').addEventListener('click', function(){
         document.querySelector('body').style.backgroundColor = 'green';
         document.querySelector('.number').style.width = '30rem';
         document.querySelector('.number').textContent = randomNumber;
+
+        //set the highscore
+        if(score > highScore){
+            highScore = score;
+            document.querySelector('.highscore').textContent = highScore;
+        }
     }
 
     //check wheather the input is too high
@@ -38,7 +45,7 @@ document.querySelector('.check').addEventListener('click', function(){
             document.querySelector('.score').textContent = 0;
         }
     }
-
+    //if the input is  lower
     else {
         //if score is greater than 1, then score--
         if(score > 1){
@@ -56,7 +63,7 @@ document.querySelector('.check').addEventListener('click', function(){
 
 });
 
-
+//the again button
 document.querySelector('.again').addEventListener('click', function(){
 
     randomNumber = Math.trunc(Math.random() * 20) + 1;

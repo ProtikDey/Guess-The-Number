@@ -1,8 +1,8 @@
 'use strict';
 
-const randomNumber = Math.trunc(Math.random() * 20) + 1;
+let randomNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
-document.querySelector('.number').textContent = randomNumber;
+
 
 
 document.querySelector('.check').addEventListener('click', function(){
@@ -20,6 +20,7 @@ document.querySelector('.check').addEventListener('click', function(){
         document.querySelector('.message').textContent = 'Correct number!!!';
         document.querySelector('body').style.backgroundColor = 'green';
         document.querySelector('.number').style.width = '30rem';
+        document.querySelector('.number').textContent = randomNumber;
     }
 
     //check wheather the input is too high
@@ -41,7 +42,7 @@ document.querySelector('.check').addEventListener('click', function(){
     else {
         //if score is greater than 1, then score--
         if(score > 1){
-            document.querySelector('.message').textContent = 'Too high!!!';
+            document.querySelector('.message').textContent = 'Too low!!!';
             score -- ;
             document.querySelector('.score').textContent = score;
     
@@ -52,5 +53,25 @@ document.querySelector('.check').addEventListener('click', function(){
             document.querySelector('.score').textContent = 0;
         }
     }
+
+});
+
+
+document.querySelector('.again').addEventListener('click', function(){
+
+    randomNumber = Math.trunc(Math.random() * 20) + 1;
+    score = 20;
+
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('.score').textContent = score;
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.guess').value = '';
+
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';    
+
+
+
+
 
 });

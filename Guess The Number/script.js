@@ -18,6 +18,8 @@ document.querySelector('.check').addEventListener('click', function(){
     //check wheather the input is correct
     else if(input == randomNumber){
         document.querySelector('.message').textContent = 'Correct number!!!';
+        document.querySelector('body').style.backgroundColor = 'green';
+        document.querySelector('.number').style.width = '30rem';
     }
 
     //check wheather the input is too high

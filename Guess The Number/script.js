@@ -1,20 +1,31 @@
 'use strict';
 
-//display the textcontent of the 'between' class of the html
-//console.log(document.querySelector('.between').textContent);
-
-//taking the value of input box
-//document.querySelector('.guess').value;
+const randomNumber = Math.trunc(Math.random() * 20) + 1;
+document.querySelector('.number').textContent = randomNumber;
 
 
-function clickEvent(){
+document.querySelector('.check').addEventListener('click', function(){
 
+    //take input from input box
     const input = Number(document.querySelector('.guess').value) ;
-
+    
+    //check wheather number or not
     if(!input){
         document.querySelector('.message').textContent = 'Not a number!!!! Input a number';
     }
-}
 
+    //check wheather the input is correct
+    else if(input == randomNumber){
+        document.querySelector('.message').textContent = 'Correct number!!!';
+    }
 
-document.querySelector('.check').addEventListener('click', clickEvent());
+    //check wheather the input is too high
+    else if(input > randomNumber){
+        document.querySelector('.message').textContent = 'Too high!!!';
+    }
+
+    else {
+        document.querySelector('.message').textContent = 'Too low!!!';
+    }
+
+});
